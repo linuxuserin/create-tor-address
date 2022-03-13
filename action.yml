@@ -1,0 +1,13 @@
+# action.yml
+name: 'Create Tor Address'
+description: 'Create Custom tor address using brute-force method'
+inputs:
+  name:  # id of input
+    description: 'custom name to find'
+    required: true
+    default: 'test'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.name }}
