@@ -1,0 +1,23 @@
+name: Test
+
+"on":
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Create address
+    steps:
+      - name: address creator
+        id: test
+        uses: linuxuserin/create-tor-address@main
+        with:
+          name: 'test'
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          # the output branch we mentioned above
+          target_branch: testkeys
+          build_dir: keys
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
