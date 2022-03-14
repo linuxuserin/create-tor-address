@@ -2,6 +2,7 @@ name: Test
 
 "on":
   push:
+    tags: ["v*.*.*"]
   workflow_dispatch:
 
 jobs:
@@ -19,5 +20,6 @@ jobs:
           # the output branch we mentioned above
           target_branch: testkeys
           build_dir: keys
+          keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
